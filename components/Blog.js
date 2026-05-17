@@ -7,23 +7,21 @@ export default async function Blog() {
 
   return (
     <section id="blog" className="container-x py-20 lg:py-28">
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-        <span className="text-sm font-bold tracking-tight">[05 Blog]</span>
-        <MaskText
-          as="h2"
-          className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:max-w-3xl lg:text-right lg:text-6xl"
-          lines={[
-            <span key="1">
-              Stories<span className="text-neutral-400">,</span> strategies
-              <span className="text-neutral-400">, and </span>creative
-              perspectives
-            </span>,
-            <span key="2" className="text-neutral-400">
-              from the team.
-            </span>,
-          ]}
-        />
-      </div>
+      <span className="text-sm font-bold tracking-tight">[05 Blog]</span>
+      <MaskText
+        as="h2"
+        className="mt-5 max-w-3xl text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl"
+        lines={[
+          <span key="1">
+            Stories<span className="text-neutral-400">,</span> strategies
+            <span className="text-neutral-400">, and </span>creative
+            perspectives
+          </span>,
+          <span key="2" className="text-neutral-400">
+            from the team.
+          </span>,
+        ]}
+      />
 
       <a
         href="/blog"

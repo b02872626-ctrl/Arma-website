@@ -1,7 +1,7 @@
 const navLinks = [
   { label: "Projects", href: "/projects" },
   { label: "Services", href: "/#services" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
 
@@ -12,9 +12,14 @@ const socialLinks = [
 
 function Bracketed({ label }) {
   return (
-    <span className="text-sm font-medium text-white/55 transition group-hover:text-white">
-      <span className="text-white/30">[</span> {label}{" "}
-      <span className="text-white/30">]</span>
+    <span className="inline-flex items-center text-sm font-medium text-white/55 transition group-hover:text-white">
+      <span className="text-white/30 transition-transform duration-300 ease-out group-hover:translate-x-[5px]">
+        [
+      </span>
+      <span className="px-2">{label}</span>
+      <span className="text-white/30 transition-transform duration-300 ease-out group-hover:-translate-x-[5px]">
+        ]
+      </span>
     </span>
   );
 }

@@ -1,4 +1,5 @@
 import MaskChars from "@/components/MaskChars";
+import ParallaxImage from "@/components/ParallaxImage";
 import { backgroundFromValue } from "@/lib/drive";
 
 export default function ProjectDetail({ project, previousProject, nextProject }) {
@@ -41,16 +42,16 @@ export default function ProjectDetail({ project, previousProject, nextProject })
 
       {/* 2. Images — cover + equal-sized gallery */}
       <section className="container-x pb-16 pt-10 lg:pb-20 lg:pt-14">
-        <div
-          className="aspect-[16/10] w-full overflow-hidden rounded-3xl"
-          style={{ background: backgroundFromValue(project.cover) }}
+        <ParallaxImage
+          className="aspect-[16/10] w-full rounded-3xl"
+          background={backgroundFromValue(project.cover)}
         />
         <div className="mt-5 space-y-5">
           {(project.gallery || []).map((img, i) => (
-            <div
+            <ParallaxImage
               key={i}
-              className="aspect-[16/9] w-full overflow-hidden rounded-3xl"
-              style={{ background: backgroundFromValue(img) }}
+              className="aspect-[16/9] w-full rounded-3xl"
+              background={backgroundFromValue(img)}
             />
           ))}
         </div>

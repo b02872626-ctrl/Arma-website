@@ -1,4 +1,5 @@
 import MaskChars from "@/components/MaskChars";
+import ParallaxImage from "@/components/ParallaxImage";
 import { backgroundFromValue } from "@/lib/drive";
 
 export default function BlogPost({ post }) {
@@ -26,9 +27,9 @@ export default function BlogPost({ post }) {
         </div>
 
         {/* 2. Cover image */}
-        <div
-          className="mx-auto mt-10 aspect-[16/10] max-w-4xl overflow-hidden rounded-3xl lg:mt-12"
-          style={{ background: backgroundFromValue(post.cover) }}
+        <ParallaxImage
+          className="mx-auto mt-10 aspect-[16/10] max-w-4xl rounded-3xl lg:mt-12"
+          background={backgroundFromValue(post.cover)}
         />
 
         {/* 3. Body */}
