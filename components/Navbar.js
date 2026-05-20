@@ -3,20 +3,21 @@
 import { useState, useEffect } from "react";
 
 const links = [
+  { label: "Home", href: "/" },
   { label: "Projects", href: "/projects" },
-  { label: "Services", href: "/#services" },
   { label: "About", href: "/about" },
   { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function Bracketed({ label }) {
   return (
-    <span className="group nav-link inline-flex items-center">
-      <span className="text-muted transition-transform duration-300 ease-out group-hover:translate-x-[5px]">
+    <span className="group inline-flex items-center text-lg font-semibold text-ink lg:text-2xl">
+      <span className="transition-transform duration-300 ease-out group-hover:translate-x-[6px]">
         [
       </span>
-      <span className="px-2">{label}</span>
-      <span className="text-muted transition-transform duration-300 ease-out group-hover:-translate-x-[5px]">
+      <span className="px-2.5">{label}</span>
+      <span className="transition-transform duration-300 ease-out group-hover:-translate-x-[6px]">
         ]
       </span>
     </span>
@@ -50,18 +51,14 @@ export default function Navbar() {
         hidden && !open ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="h-1.5 w-full bg-ink/10" />
-      <nav className="container-x flex h-20 items-center justify-between">
-        <a href="/" className="flex items-center">
-          {/* Black logo for the light navbar — save file at /public/logo-black.png */}
-          <img
-            src="/logo-black.png"
-            alt="ARMA"
-            className="h-8 w-auto"
-          />
+      <nav className="flex h-20 items-center gap-4 px-5 sm:px-8 lg:px-12">
+        {/* Mobile only: logo */}
+        <a href="/" className="flex items-center lg:hidden">
+          <img src="/logo-black.png" alt="ARMA" className="h-8 w-auto" />
         </a>
 
-        <ul className="hidden items-center gap-7 lg:flex">
+        {/* Desktop: nav links spread edge-to-edge */}
+        <ul className="hidden w-full items-center justify-between lg:flex">
           {links.map((l) => (
             <li key={l.href}>
               <a href={l.href}>
@@ -71,17 +68,11 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden lg:block">
-          <a href="/contact" className="btn-dark">
-            <span className="h-1.5 w-1.5 rounded-full bg-white" />
-            Get in Touch
-          </a>
-        </div>
-
+        {/* Mobile hamburger */}
         <button
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
-          className="grid h-10 w-10 place-items-center rounded-full border border-ink/15 lg:hidden"
+          className="ml-auto grid h-10 w-10 place-items-center rounded-full border border-ink/15 lg:hidden"
         >
           <div className="space-y-1.5">
             <span className="block h-0.5 w-5 bg-ink" />
@@ -104,15 +95,6 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
-            <li className="pt-3">
-              <a
-                href="/contact"
-                onClick={() => setOpen(false)}
-                className="btn-dark w-full justify-center"
-              >
-                Get in Touch
-              </a>
-            </li>
           </ul>
         </div>
       )}

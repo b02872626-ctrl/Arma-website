@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import CursorTag from "@/components/CursorTag";
 
 const hostGrotesk = localFont({
   src: [
@@ -80,6 +81,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={hostGrotesk.variable}>
       <body className="font-sans antialiased">
         <SmoothScroll />
+        <CursorTag />
         {children}
       </body>
     </html>
